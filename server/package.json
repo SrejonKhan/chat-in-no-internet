@@ -1,0 +1,17 @@
+{
+  "name": "chat-in-no-internet",
+  "version": "0.1.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:8080": "node src/main.js 8080",
+    "start:8081": "node src/main.js 8081"
+  },
+  "keywords": [],
+  "author": "Srejon Khan",
+  "license": "ISC",
+  "dependencies": {
+    "websocket": "^1.0.35"
+  }
+}
