@@ -1,6 +1,7 @@
 const express = require("express");
 const WebSocketServer = require("websocket").server;
 const { messageHandler, closeHandler } = require("./handlers");
+const { uploadMiddleware, uploadController } = require("./cdn");
 require("dotenv").config();
 
 const app = express();
@@ -20,3 +21,5 @@ websocket.on("request", (request) => {
   connection.on("message", (msg) => messageHandler(connection, msg));
   connection.on("close", (msg) => closeHandler(connection));
 });
+
+app.post("/upload", uploadMiddleware.single("file"), uploadController);
