@@ -566,6 +566,11 @@
             }
             saveMsgToLocalStorage(payload);
         }
+
+        ws.onclose = () =>
+        {
+            alert("You are disconnected! Refresh again to connect.")
+        };
     </script>
 </body>
 
