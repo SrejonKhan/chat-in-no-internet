@@ -1,13 +1,13 @@
 const express = require("express");
-const { argv } = require("process");
 const WebSocketServer = require("websocket").server;
 const { messageHandler, closeHandler } = require("./handlers");
+require("dotenv").config();
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const port = Number(argv[2]);
+const port = process.env.PORT;
 
 const httpServer = app.listen(port, () => {
   console.log(`Chat WS Server is listening on port ${port}`);
