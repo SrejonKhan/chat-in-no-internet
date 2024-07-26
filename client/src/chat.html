@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat in No Internet!</title>
+    <title>{{ HEAD_TITLE }}</title>
     <style>
         * {
             margin: 0;
@@ -184,12 +184,12 @@
 
 <body>
     <div class="container">
-        <h1>Chat in No Internet!</h1>
+        <h1>{{ TITLE }}</h1>
         <div class="chatbox">
             <div id="chat-list">
                 <div class="sys-bubble"
                     style=" background-color: mediumslateblue; display: block; padding-bottom: 10px; ">
-                    <p class="sys-msg"> Welcome to Chat in No Internet! <br /> <br /> To change your username, type
+                    <p class="sys-msg"> Welcome to {{ TITLE }} <br /> <br /> To change your username, type
                         <span><code>!us</code></span> and press send.<br /> To change your color, type
                         <span><code>!col</code></span> and press send.<br /> To clear all previous messages, type
                         <span><code>!clr</code></span> and press send.
@@ -232,7 +232,7 @@
         </div>
     </div>
     <script>
-        let ws = new WebSocket("ws://YOUR_SERVER_PUBLIC_IP:8081");
+        let ws = new WebSocket(process.env.WS_SERVER_URL);
         const typingStatus = {};
 
         const chatBubble = document.getElementById("chat-bubble");
@@ -507,7 +507,7 @@
             if (fileInput.files.length > 0) {
                 const formData = new FormData(sendForm);
                 const options = { method: 'POST', body: formData };
-                fetch('http://YOUR_UPLOAD_SERVER_URL:5000/upload', options)
+                fetch(process.env.CDN_UPLOAD_ENDPOINT, options)
                     .then(response => response.json())
                     .then(response =>
                     {
@@ -541,7 +541,7 @@
             sendAck();
             const formattedRoomName = roomName == window.location.pathname ? "Base" : roomName;
             appendSysMessage({ message: `You have joined ${formattedRoomName} room!` });
-            document.title = `${formattedRoomName} Room - Chat in No Internet!`;
+            document.title = `${formattedRoomName} Room - ${process.env.TITLE}}`;
             getAllMessage();
         };
 
