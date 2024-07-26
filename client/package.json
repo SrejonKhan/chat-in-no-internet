@@ -9,6 +9,9 @@
   "author": "Srejon Khan",
   "license": "ISC",
   "dependencies": {
-    "chokidar": "^3.6.0"
+    "cheerio": "^1.0.0-rc.12",
+    "chokidar": "^3.6.0",
+    "dotenv": "^16.4.5",
+    "live-server": "^1.2.2"
   }
 }
