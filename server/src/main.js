@@ -1,7 +1,7 @@
 const express = require("express");
 const WebSocketServer = require("websocket").server;
 const { messageHandler, closeHandler } = require("./handlers");
-const { uploadMiddleware, uploadController } = require("./cdn");
+const { uploadMiddleware, uploadController } = require("./upload");
 require("dotenv").config();
 
 const app = express();
