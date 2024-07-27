@@ -78,3 +78,16 @@ Absolutely! This application can be used privately. Just ensure you have the nec
 ### 6. Are you planning to improve/scale it?
 
 Maybe! Completely depends on availability and priority. But, if you are interested, HMU!
+
+## Client-Side Builder
+
+To manage configurable values in our vanilla JavaScript project, I wrote a custom [builder](/client/build/builder.js) script. This script replaces specific delimiters with environment variables during the build process.
+
+- HTML and CSS: `{{ VARIABLE_NAME }}` is replaced with the value of `VARIABLE_NAME` from the environment.
+- JavaScript: `process.env.VARIABLE_NAME` is replaced with the value of `VARIABLE_NAME` from the environment.
+
+The build process involves parsing the files and substituting the delimiters with their corresponding values.
+
+## Development Server for Client Side
+
+For rapid development, I implemented a simple development server that automatically rebuilds and reloads the application when files change. Chokidar is used to monitor file changes, triggering a rebuild. The live server serves the `dist` folder, ensuring instant updates are reflected in the browser.
