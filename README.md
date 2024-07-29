@@ -91,3 +91,7 @@ The build process involves parsing the files and substituting the delimiters wit
 ## Development Server for Client Side
 
 For rapid development, I implemented a simple development server that automatically rebuilds and reloads the application when files change. Chokidar is used to monitor file changes, triggering a rebuild. The live server serves the `dist` folder, ensuring instant updates are reflected in the browser.
+
+## How to Deploy? (VPS Hosting)
+
+Great thing is that, everything is setup perfectly for you using Github Action. You just have to trigger the action (through push or reuses).
