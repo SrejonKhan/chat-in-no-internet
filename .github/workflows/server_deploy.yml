@@ -44,4 +44,4 @@ jobs:
             cd $SERVER_PATH
             npm ci
             cp ../../.env ./.env
-            npm run start
+            pm2 restart chat-in-no-internet-server
