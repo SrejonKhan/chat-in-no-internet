@@ -15,7 +15,7 @@ const processHtmlCssContent = (content) => {
 const processJavascriptCode = (code) => {
   return code.replace(/process\.env\.(\w+)/g, (match, variable) => {
     variable = variable.trim();
-    process.env[variable] ? `"${process.env[variable]}"` : "undefined";
+    return process.env[variable] ? `"${process.env[variable]}"` : "undefined";
   });
 };
 
