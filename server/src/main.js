@@ -1,10 +1,12 @@
 const express = require("express");
+var cors = require("cors");
 const WebSocketServer = require("websocket").server;
 const { messageHandler, closeHandler } = require("./handlers");
 const { uploadMiddleware, uploadController } = require("./upload");
 require("dotenv").config();
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
