@@ -295,7 +295,12 @@
         /*--------------------SERVER ACTIONS--------------------*/
         const sendAck = () =>
         {
-            const username = localStorage.getItem("username") ?? prompt("Username", "Naam Nai");
+            let username = localStorage.getItem("username");
+            if (!username) {
+                username = prompt("Username", "Naam Nai");
+                localStorage.setItem("username", username);
+            }
+
             const payload = {
                 type: "USER_ACTION",
                 actionName: `ACK`,
