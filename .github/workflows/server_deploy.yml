@@ -26,8 +26,8 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           local-dir: server/
           server-dir: ${{ secrets.FTP_SERVER_DIR }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
+          username: ${{ secrets.FTP_USERNAME_SERVER }}
+          password: ${{ secrets.FTP_PASSWORD_SERVER }}
           port: 21
 
       - name: Build in Server using SSH
