@@ -42,7 +42,6 @@ jobs:
           envs: SERVER_PATH
           script: |
             cd $SERVER_PATH
-            cp 
             npm ci
-            cp /.env ./.env
+            cp ../../.env ./.env
             npm run start
